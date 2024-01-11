@@ -1,0 +1,97 @@
+=
+
+<div class="card">
+<div class="container">
+      <h3>Form Code</h3>
+  
+    <div class="code">
+        <pre>
+              &lt;form&gt;</pre>
+
+
+        <div *ngFor="let element of elements">
+                <div [ngSwitch]="element.elementType">
+                    <div *ngSwitchCase="'text'">
+                        <pre>
+                          &lt;div&gt;
+                            &lt;label for="text_{{ element.elementName }}"&gt;{{element.elementName}}
+                            &lt;/label&gt;
+                            &lt;input
+                              type="text"
+                              id="text_{{ element.elementName }}"
+                              name="text_{{ element.elementName }}"
+                              placeholder="Enter {{ element.elementName }}"
+                              required
+                            &gt;
+                          &lt;/div&gt;
+                          &lt;br&gt;
+                        </pre>
+                    </div>
+
+                    <div *ngSwitchCase="'password'">
+                        <pre>
+                          &lt;div&gt;
+                            &lt;label for="password_{{ element.elementName }}"&gt;{{
+                              element.elementName
+                            }}&lt;/label&gt;
+                            &lt;input
+                              type="password"
+                              id="password_{{ element.elementName }}"
+                              name="password_{{ element.elementName }}"
+                              placeholder="Enter {{ element.elementName }}"
+                              required
+                            &gt;
+                          &lt;/div&gt;
+                          &lt;br&gt;
+                        </pre>
+                      </div>
+
+                      <div *ngSwitchCase="'email'">
+                        <pre>
+                          &lt;div&gt;
+                            &lt;label for="email_{{element.elementName}}"&gt;{{
+                              element.elementName
+                            }}&lt;/label&gt;
+                            &lt;input
+                              type="email"
+                              id="email_{{ element.elementName }}"
+                              name="email_{{ element.elementName }}"
+                              placeholder="Enter {{ element.elementName }}"
+                              required
+                            &gt;
+                          &lt;/div&gt;
+                          &lt;br&gt;
+                        </pre>
+                      </div>
+
+                      <div *ngSwitchCase="'dropdown'">
+                        <pre>
+                          &lt;div&gt;
+                            &lt;label for="dropdown_{{element.elementName}}"&gt;{{
+                              element.elementName
+                            }}&lt;/label&gt;
+                            &lt;select name="options_{{element.elementName}}" id="options_{{element.elementName}}"&gt;</pre>
+                          <div class="code" *ngFor="let option of element.elementOptions"><pre>
+                              &lt;option value="{{option}}"&gt;{{option}}&lt;/option&gt;
+                           </pre>
+                          </div><pre>
+                            &lt;/select&gt;</pre><pre>                            
+                          &lt;/div&gt;
+                          &lt;br&gt;
+                        </pre>
+                      </div>
+                      <div *ngSwitchDefault>
+                        Something Went Wrong
+                      </div>      
+
+                </div>
+            
+        </div>
+           
+        <pre>
+              &lt;/form&gt;</pre>
+        </div>
+    </div>
+    <button style="margin: 100px 300px 100px 300px;font-size: 10px;" mat-raised-button color="primary" (click)="viewForm()">Preview</button>
+        
+</div>
